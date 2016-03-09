@@ -31,21 +31,34 @@
      * @event
      */
     function onDeviceReady() {
-        // Create a connection reference to our Azure Mobile Apps backend
-        client = new WindowsAzure.MobileServiceClient('https://stengel001.azurewebsites.net');
+       
+        // *************************************************
+        // New content below replacing above for facebook auth
+        // *************************************************
+       
+        // Login to the service
+        client.login('facebook')
+            .then(function () {
 
-        // Create a table reference
-        todoItemTable = client.getTable('todoitem');
+                // Create a table reference
+                todoItemTable = client.getTable('todoitem');
 
-        // Refresh the todoItems
-        refreshDisplay();
+                // Refresh the todoItems
+                refreshDisplay();
 
-        // Wire up the UI Event Handler for the Add Item
-        $('#add-item').submit(addItemHandler);
-        $('#refresh').on('click', refreshDisplay);
-    }
+                // Wire up the UI Event Handler for the Add Item
+                $('#add-item').submit(addItemHandler);
+                $('#refresh').on('click', refreshDisplay);
 
-    /**
+                // *************************************************
+                // END OF ORIGINAL CODE
+                // *************************************************
+                
+            }, handleError);
+
+        // END: Add on 3.8.2016 for Facebook auth
+        
+     /*  
      * Refresh the items within the page
      */
     function refreshDisplay() {
@@ -187,4 +200,4 @@
             .update({ id: itemId, complete: isComplete })  // Async send the update to backend
             .then(refreshDisplay, handleError);        // Update the UI
     }
-})();
+    })();
