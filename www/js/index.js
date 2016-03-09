@@ -31,11 +31,10 @@
      * @event
      */
     function onDeviceReady() {
-       
 
         // Create a connection reference to our Azure Mobile Apps backend
         client = new WindowsAzure.MobileServiceClient('https://stengel001.azurewebsites.net'); 
-        //todoItemTable = client.getTable('todoitem');
+        todoItemTable = client.getTable('todoitem');
         // *************************************************
         // New content below replacing above for facebook auth
         // *************************************************
