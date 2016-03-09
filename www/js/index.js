@@ -40,11 +40,11 @@
         // *************************************************
        
         // Login to the service
-        client.login('google')
+        client.login('facebook')
             .then(function () {
 
                 // Create a table reference
-                todoItemTable = client.getTable('todoitem');
+                //todoItemTable = client.getTable('todoitem');
 
                 // Refresh the todoItems
                 refreshDisplay();
