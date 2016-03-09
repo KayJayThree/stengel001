@@ -37,7 +37,7 @@
         // *************************************************
        
         // Login to the service
-        client.login('facebook')
+        client.login('google')
             .then(function () {
 
                 // Create a table reference
