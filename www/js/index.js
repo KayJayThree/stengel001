@@ -33,12 +33,12 @@
     function onDeviceReady() {
 
         // Create a connection reference to our Azure Mobile Apps backend
-        client = new WindowsAzure.MobileServiceClient('https://stengel001.azurewebsites.net'); 
+        client = new WindowsAzure.MobileServiceClient('https://stengel001.azurewebsites.net');
         todoItemTable = client.getTable('todoitem');
         // *************************************************
         // New content below replacing above for facebook auth
         // *************************************************
-       
+
         // Login to the service
         client.login('facebook')
             .then(function () {
@@ -56,8 +56,9 @@
                 // *************************************************
                 // END OF ORIGINAL CODE
                 // *************************************************
-                
+
             }, handleError);
+    }
 
         // END: Add on 3.8.2016 for Facebook auth
         
